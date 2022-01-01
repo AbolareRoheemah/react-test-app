@@ -1,0 +1,175 @@
+.login_container {
+    position: relative;
+    background-size: cover;
+}
+
+.image_container {
+    /* padding: 10vw; */
+    height: auto;
+    overflow: hidden;
+}
+
+.login_card {
+    position: absolute;
+    top: 10vh;
+    right: 12vw;
+    background: #ffffff;
+    height: 70vh;
+    max-height: 90vh;
+    width: 49.9vw;
+    padding-bottom: 10vh;
+}
+
+.register_login_card {
+    background: #ffffff;
+    width: 49.9vw;
+    overflow: hidden;
+    margin-left: 37vw;
+}
+
+.image {
+    padding: 5.5%;
+    position: relative;
+    background-repeat: no-repeat;
+    width: 57vw;
+}
+
+.login_image {
+    padding: 9%;
+    position: relative;
+    background-repeat: no-repeat;
+    width: 54vw;
+}
+
+.empty {
+    width: 50vw;
+}
+
+.logo_div {
+    position: absolute;
+    bottom: 85.5%;
+    left: calc(125vw / 2);
+}
+
+.login_logo_div {
+    position: absolute;
+    bottom: 77.5%;
+    left: calc(133.5vw / 2);
+}
+
+.text_form {
+    padding: 10vh;
+}
+
+.welcome_text_div {
+    text-align: center;
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: normal;
+    opacity: 0.9;
+    padding: 0 5vw;
+}
+
+.welcome {
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.01em;
+    color: #414B58;
+}
+
+.welcome_text {
+    font-size: 16px;
+    /* line-height: 30px; */
+    text-align: center;
+    color: #758396;
+    white-space: pre-wrap;
+}
+
+.input_box {
+    border: 1px solid #E1EDFE;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 34.72vw;
+    height: 7.86vh;
+    margin-top: 4vh;
+}
+
+.register_input_box {
+    border: 1px solid #E1EDFE;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 34.72vw;
+    height: 7.86vh;
+    margin: 2.5vh 0;
+}
+
+.input_field {
+    position: relative;
+}
+
+.input_label {
+    position: absolute;
+    bottom: 6.8vh;
+    left: 2vw;
+    background-color: #fff;
+    padding: 0 0.5vw;
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #b4b8c0;
+}
+
+.toggle_password {
+    position: absolute;
+    right: 15%;
+    top: 57%;
+    cursor: pointer;
+}
+
+.register_toggle_password {
+    position: absolute;
+    right: 15%;
+    top: 52%;
+    cursor: pointer;
+}
+
+.forgot_password {
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #0082FA;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.btn_div {
+    width: 22.4vw;
+    height: 64px;
+    left: 885px;
+    top: 642px;
+    background: #0082FA;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 7vh auto 0;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'Graphik';
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+    opacity: 0.9;
+    border: 0;
+}
+
+.question_text {
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: center;
+    color: #758396;
+    opacity: 0.9;
+}
