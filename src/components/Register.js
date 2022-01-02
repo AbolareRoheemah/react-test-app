@@ -8,10 +8,10 @@ import Eye from '../assets/images/eye.svg'
 
 function Register() {
     return (
-        <div className="login_container">
+        <div className="register_container">
             <div className="image_container">
                 <div className="image" style={{ backgroundImage:`url(${AuthImage})` }}>
-                    <div className="register_login_card">
+                    <div className="login_card">
                         <div className="logo_div">
                             <img src={Logo} alt="logo" />
                         </div>

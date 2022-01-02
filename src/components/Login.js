@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styleSheet/Login.css';
 import { Link } from 'react-router-dom';
-import AuthImage from '../assets/images/auth_girl_image.png'
+import AuthImage from '../assets/images/betalady.jpg'
 import Logo from '../assets/images/logo.png'
 import Eye from '../assets/images/eye.svg'
 
@@ -9,9 +9,8 @@ import Eye from '../assets/images/eye.svg'
 function Login() {
     return (
         <div className="login_container">
-            <div className="image_container">
-                <div className="login_image" style={{ backgroundImage:`url(${AuthImage})` }}>
-                    <div className="register_login_card">
+            <div className="login_image_container" style={{ backgroundImage:`url(${AuthImage})` }}>
+                    <div className="login_card">
                         <div className="login_logo_div">
                             <img src={Logo} alt="logo" />
                         </div>
@@ -31,14 +30,13 @@ function Login() {
                                     <img src={Eye} alt="show password" className="toggle_password"/>
                                 </div>
                                 <p className="forgot_password">Forgot Password?</p>
-                                <div>
-                                    <button className="btn_div">Sign In</button>
+                                <div className="btn_div">
+                                    <button className="btn">Sign In</button>
                                 </div>
                                 <p className="question_text">Don't have an account <Link to="/register" className="forgot_password">Create New Account</Link></p>
                             </form>
                         </div>
-                        </div>
-                </div>
+                    </div>
                 <div className="empty"></div>
             </div>
         </div>

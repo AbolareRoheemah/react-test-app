@@ -1,6 +1,7 @@
 .login_container {
-    position: relative;
-    background-size: cover;
+    /* position: relative; */
+    height: 100vh;
+    max-height: 100vh;
 }
 
 .image_container {
@@ -9,22 +10,39 @@
     overflow: hidden;
 }
 
-.login_card {
+.login_image_container {
+    /* padding: 9%; */
+    position: relative;
+    background-size: cover;
+    width: 65%;
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .login_card {
     position: absolute;
     top: 10vh;
     right: 12vw;
     background: #ffffff;
     height: 70vh;
     max-height: 90vh;
-    width: 49.9vw;
+    width: 45.9vw;
     padding-bottom: 10vh;
-}
+} */
 
-.register_login_card {
+.login_card {
     background: #ffffff;
-    width: 49.9vw;
-    overflow: hidden;
-    margin-left: 37vw;
+    width: 34.9vw;
+    margin-left: 67vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5vw 5vh;
+    text-align: center;
 }
 
 .image {
@@ -32,13 +50,6 @@
     position: relative;
     background-repeat: no-repeat;
     width: 57vw;
-}
-
-.login_image {
-    padding: 9%;
-    position: relative;
-    background-repeat: no-repeat;
-    width: 54vw;
 }
 
 .empty {
@@ -51,14 +62,16 @@
     left: calc(125vw / 2);
 }
 
-.login_logo_div {
-    position: absolute;
-    bottom: 77.5%;
-    left: calc(133.5vw / 2);
+.login_logo_div img {
+    width: 120px;
+    margin-top: -62px;
+    margin-left: -1.8vw;
 }
 
 .text_form {
-    padding: 10vh;
+    /* padding: 20px 4vw 5vh; */
+    /* margin-top: 40px; */
+    width: 650px;
 }
 
 .welcome_text_div {
@@ -67,7 +80,7 @@
     font-style: normal;
     font-weight: normal;
     opacity: 0.9;
-    padding: 0 5vw;
+    padding: 0 7vw;
 }
 
 .welcome {
@@ -110,7 +123,7 @@
 .input_label {
     position: absolute;
     bottom: 6.8vh;
-    left: 2vw;
+    left: 7vw;
     background-color: #fff;
     padding: 0 0.5vw;
     font-family: 'Graphik';
@@ -145,16 +158,17 @@
 }
 
 .btn_div {
-    width: 22.4vw;
-    height: 64px;
-    left: 885px;
-    top: 642px;
-    background: #0082FA;
-    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 7vh auto 0;
+    margin: 0;
+}
+
+.btn {
+    width: 22.4vw;
+    height: 64px;
+    background: #0082FA;
+    border-radius: 5px;
     cursor: pointer;
     color: #fff;
     font-family: 'Graphik';
