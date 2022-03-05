@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styleSheet/Login.css';
+import '../styleSheet/Auth.css';
 import { Link } from 'react-router-dom';
 import AuthImage from '../assets/images/auth_girl_image.png'
 import Logo from '../assets/images/logo.png'
@@ -9,10 +9,10 @@ import Eye from '../assets/images/eye.svg'
 function Register() {
     return (
         <div className="register_container">
-            <div className="image_container">
-                <div className="image" style={{ backgroundImage:`url(${AuthImage})` }}>
-                    <div className="login_card">
-                        <div className="logo_div">
+            <div className="register_image_container" style={{ backgroundImage:`url(${AuthImage})` }}>
+                {/* <div className="image"> */}
+                    <div className="register_card">
+                        <div className="register_logo_div">
                             <img src={Logo} alt="logo" />
                         </div>
                         <div className="text_form">
@@ -20,7 +20,7 @@ function Register() {
                                 <p className="welcome">Welcome</p>
                                 <p className="welcome_text">Automate notifications and provide support through our omni-channel SMS API</p>
                             </div>
-                            <form className="login_form">
+                            <form className="register_form">
                                 <div className="input_field">
                                     <label htmlFor="name" className="register_input_label">Full Name</label>
                                     <input type="text" className="register_input_box" />
@@ -39,15 +39,15 @@ function Register() {
                                     <input type="confirmpassword" className="register_input_box" />
                                     <img src={Eye} alt="show password" className="register_toggle_password"/>
                                 </div>
-                                {/* <p className="forgot_password">Forgot Password?</p> */}
-                                <div>
-                                    <button className="btn_div">Sign In</button>
+                                <p className="terms">By signing up you agree to our <span className="terms_link">Terms &nbsp; Privacy Policy</span></p>
+                                <div className="btn_div">
+                                    <button className="btn">Register Account</button>
                                 </div>
                                 <p className="question_text">Already have an account? <Link to="/register" className="forgot_password">Sign In</Link></p>
                             </form>
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
                 <div className="empty"></div>
             </div>
         </div>

@@ -1,0 +1,73 @@
+.nav_container {
+    /* width: 100vw; */
+    max-width: 90vw;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    overflow: hidden;
+    height: 9vh;
+}
+
+.nav_logo_div img {
+    width: 60px;
+    height: 60px;
+}
+
+.user_info_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 10vw;
+    cursor: pointer;
+}
+
+.cards_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5vh 10vw;
+}
+
+.cards {
+    background: #FFFFFF;
+    border: 1px solid #E2E2EA;
+    border-radius: 20px;
+    width: 30vw;
+    height: 20vh;
+    padding: 0 2vw;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 15px;
+
+color: #75759E;
+}
+
+.login_amt {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 36px;
+
+    color: #171725;
+}
+
+.logo-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}

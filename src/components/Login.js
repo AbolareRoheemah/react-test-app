@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styleSheet/Login.css';
+import '../styleSheet/Auth.css';
 import { Link } from 'react-router-dom';
 import AuthImage from '../assets/images/betalady.jpg'
 import Logo from '../assets/images/logo.png'

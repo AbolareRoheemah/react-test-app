@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Routes, Route } from 'react-router';
 import Register from './components/Register';
 import Login from './components/Login';
+import Dashboard from './components/Dashboard';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Route path='/' element={<App />}/>
       <Route path='/register' element={<Register />}/>
       <Route path='/login' element={<Login />}/>
+      <Route path='/dashboard' element={<Dashboard />}/>
       {/* <Route path='/register' element={<Register />}/> */}
     </Routes>
   </BrowserRouter>,

@@ -1,13 +1,12 @@
 .login_container {
-    /* position: relative; */
     height: 100vh;
     max-height: 100vh;
 }
 
-.image_container {
-    /* padding: 10vw; */
+.register_container {
     height: auto;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow: auto;
 }
 
 .login_image_container {
@@ -22,16 +21,18 @@
     justify-content: center;
 }
 
-/* .login_card {
-    position: absolute;
-    top: 10vh;
-    right: 12vw;
-    background: #ffffff;
-    height: 70vh;
-    max-height: 90vh;
-    width: 45.9vw;
-    padding-bottom: 10vh;
-} */
+.register_image_container {
+    /* padding: 5%; */
+    position: relative;
+    background-size: cover;
+    width: 65%;
+    height: auto;
+    /* min-height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 15vh;
+}
 
 .login_card {
     background: #ffffff;
@@ -43,6 +44,19 @@
     justify-content: center;
     padding: 0 5vw 5vh;
     text-align: center;
+}
+
+.register_card {
+    background: #ffffff;
+    width: 34.9vw;
+    margin-left: 65vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0vh 5vw 5vh;
+    text-align: center;
+    margin-top: 10vh;
 }
 
 .image {
@@ -68,9 +82,13 @@
     margin-left: -1.8vw;
 }
 
+.register_logo_div img {
+    width: 120px;
+    margin-top: -62px;
+    margin-left: -0.2vw;
+}
+
 .text_form {
-    /* padding: 20px 4vw 5vh; */
-    /* margin-top: 40px; */
     width: 650px;
 }
 
@@ -114,6 +132,7 @@
     width: 34.72vw;
     height: 7.86vh;
     margin: 2.5vh 0;
+    display: block;
 }
 
 .input_field {
@@ -142,7 +161,7 @@
 
 .register_toggle_password {
     position: absolute;
-    right: 15%;
+    right: 5%;
     top: 52%;
     cursor: pointer;
 }
@@ -186,4 +205,23 @@
     text-align: center;
     color: #758396;
     opacity: 0.9;
+}
+
+.register_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+.terms {
+    font-family: 'Graphik';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    /* line-height: 24px; */
+    color: #758396;
+    opacity: 0.9;
+    margin: 0 0 4vh;
 }
