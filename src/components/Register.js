@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styleSheet/Auth.css';
 import { Link } from 'react-router-dom';
-import AuthImage from '../assets/images/auth_girl_image.png'
+import AuthImage from '../assets/images/new-beta-lady.jpeg'
 import Logo from '../assets/images/logo.png'
 import Eye from '../assets/images/eye.svg'
 
@@ -13,7 +13,8 @@ function Register() {
                 {/* <div className="image"> */}
                     <div className="register_card">
                         <div className="register_logo_div">
-                            <img src={Logo} alt="logo" />
+                            <p>ARA</p>
+                            {/* <img src={Logo} alt="logo" /> */}
                         </div>
                         <div className="text_form">
                             <div className="welcome_text_div">
