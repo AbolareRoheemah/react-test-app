@@ -1,36 +1,58 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
-import CardIcon from '../assets/images/card-icon.svg'
-import Logo from '../assets/images/logo.png';
 import '../styleSheet/Navbar.css';
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+import cardImage from '../assets/images/firstlady.jpeg'
 
 function Dashboard() {
+    const baseURL = "https://jsonplaceholder.typicode.com";
+    const [loading, setLoading] = useState(false)
+    const [posts, setPosts] = useState([])
+    const nav = useNavigate()
+
+    const handleSingleCard = (id) => {
+        nav(`/card-details?id=${id}`)
+    }
+
+    useEffect( () => {
+        setLoading(true)
+        axios.get(baseURL + '/posts')
+        .then(response => {
+            console.log('response', response)
+            const cutPost = response.data.splice(0,6)
+            setPosts(cutPost)
+            setLoading(false)
+        }) 
+    }, [])
     return (
         <div>
             <Navbar />
             <div className="logo-div">
-                <img src={Logo} alt="" />
+            <div className="login_logo_div">
+                {/* <img src={Logo} alt="logo" /> */}
+                <p>ARA</p>
             </div>
+            </div>
+            {
+            loading ? <p className='login_amt'>Loading...</p>: 
             <div className="cards_div">
-                <div className="cards">
-                    <div className="card-header">
-                        <p className="title">Total SMS Balance</p>
-                        <img src={CardIcon} alt="" className="card_icon" />
-                    </div>
-                    <div className="card_body">
-                        <p className="login_amt">50</p>
-                    </div>
-                </div>
-                <div className="cards">
-                    <div className="card-header">
-                        <p className="title">Total SMS Balance</p>
-                        <img src={CardIcon} alt="" className="card_icon" />
-                    </div>
-                    <div className="card_body">
-                        <p className="login_amt">50</p>
-                    </div>
-                </div>
+                {
+                    posts.map(post => {
+                        return (
+                            <div className="cards" key={post.id} onClick={() => handleSingleCard(post.id)}>
+                                <div className="card-header" style={{ backgroundImage:`url(${cardImage})` }}>
+                                </div>
+                                <div className="card_body">
+                                <p className="title">{post.title}</p>
+                                    {post.body}
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
+            }
         </div>
     )
 }

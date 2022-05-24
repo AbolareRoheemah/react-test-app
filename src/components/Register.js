@@ -24,25 +24,27 @@ function Register() {
                             <form className="register_form">
                                 <div className="input_field">
                                     <label htmlFor="name" className="register_input_label">Full Name</label>
-                                    <input type="text" className="register_input_box" />
+                                    <input type="text" className="register_input_box" required />
                                 </div>
                                 <div className="input_field">
                                     <label htmlFor="phone" className="register_input_label">Phone Number</label>
-                                    <input type="text" className="register_input_box" />
+                                    <input type="text" className="register_input_box" required />
                                 </div>
                                 <div className="input_field">
                                     <label htmlFor="password" className="register_input_label">Password</label>
-                                    <input type="password" className="register_input_box" />
+                                    <input type="password" className="register_input_box" required />
                                     <img src={Eye} alt="show password" className="register_toggle_password"/>
                                 </div>
                                 <div className="input_field">
                                     <label htmlFor="confirmpassword" className="register_input_label">Confirm Password</label>
-                                    <input type="confirmpassword" className="register_input_box" />
+                                    <input type="confirmpassword" className="register_input_box" required />
                                     <img src={Eye} alt="show password" className="register_toggle_password"/>
                                 </div>
                                 <p className="terms">By signing up you agree to our <span className="terms_link">Terms &nbsp; Privacy Policy</span></p>
                                 <div className="btn_div">
-                                    <button className="btn">Register Account</button>
+                                    <button className="btn">
+                                        <Link to="/login">Register Account</Link>
+                                    </button>
                                 </div>
                                 <p className="question_text">Already have an account? <Link to="/register" className="forgot_password">Sign In</Link></p>
                             </form>

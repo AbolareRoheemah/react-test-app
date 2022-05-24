@@ -241,3 +241,8 @@
     opacity: 0.9;
     margin: 0 0 4vh;
 }
+
+/* card details */
+.card_detail_container {
+    color: #fff;
+}
