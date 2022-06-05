@@ -3,6 +3,7 @@ import '../styleSheet/Auth.css';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthImage from '../assets/images/new-beta-lady.jpeg'
 import Eye from '../assets/images/eye.svg'
+import {useSelector} from 'react-redux'
 
 
 function Login() {
@@ -20,6 +21,7 @@ function Login() {
         e.preventDefault()
         nav('/dashboard')
     }
+    // const posts = useSelector(state => state.auth)
     return (
         <div className="login_container">
             <div className="login_image_container" style={{ backgroundImage:`url(${AuthImage})` }}>

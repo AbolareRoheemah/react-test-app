@@ -3,24 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom'
-import { Routes, Route } from 'react-router';
-import Register from './components/Register';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import CardDetail from './components/CardDetail';
+import { createStore } from 'redux';
+import allReducers from './reducers';
+import { Provider } from 'react-redux';
+
+
+const store = createStore(allReducers,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Login />}/>
-      <Route path='/register' element={<Register />}/>
-      <Route path='/login' element={<Login />}/>
-      <Route path='/dashboard' element={<Dashboard />}/>
-      <Route path='/card-details' element={<CardDetail />}/>
-      {/* <Route path='/register' element={<Register />}/> */}
-    </Routes>
-  </BrowserRouter>,
+  <Provider store={store}>
+  <App />
+  </Provider>,
   document.getElementById('root')
 );
 

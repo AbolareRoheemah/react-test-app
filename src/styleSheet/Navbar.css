@@ -52,7 +52,7 @@ a {
     border-radius: 20px 0px 20px 20px;
     flex-basis: 28%;
     height: auto;
-    min-height: 50vh;
+    min-height: 65vh;
     /* padding: 2vh 2vw; */
     box-shadow: inset rgb(233, 243, 250);
     margin-bottom: 2vh;
@@ -60,11 +60,11 @@ a {
 
 .cards:nth-child(2), .cards:nth-child(5){
     /* flex-grow: 2; */
-    height: 70vh;
+    height: 75vh;
 }
 
 .cards:nth-child(4), .cards:nth-child(6) {
-    margin-top: -37vh;
+    margin-top: -20vh;
 }
 
 .card-header {
