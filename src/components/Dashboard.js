@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import '../styleSheet/Navbar.css';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+// import {useSelector} from 'react-redux'
 import cardImage from '../assets/images/firstlady.jpeg'
 
 function Dashboard() {
@@ -14,6 +15,7 @@ function Dashboard() {
     const handleSingleCard = (id) => {
         nav(`/card-details?id=${id}`)
     }
+    // const userDetails = useSelector(state => state.userDetails)
 
     useEffect( () => {
         setLoading(true)

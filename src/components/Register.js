@@ -2,7 +2,6 @@ import React from 'react'
 import '../styleSheet/Auth.css';
 import { Link } from 'react-router-dom';
 import AuthImage from '../assets/images/new-beta-lady.jpeg'
-import Logo from '../assets/images/logo.png'
 import Eye from '../assets/images/eye.svg'
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './styleSheet/App.css';
 // import Navbar from './components/Navbar'
 import Login from './components/Login';
@@ -11,7 +11,7 @@ import Register from './components/Register';
 import CardDetail from './components/CardDetail';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
+  // const [loggedIn, setLoggedIn] = useState(false)
   return (
     <BrowserRouter>
     <Routes>

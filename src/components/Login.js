@@ -3,7 +3,10 @@ import '../styleSheet/Auth.css';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthImage from '../assets/images/new-beta-lady.jpeg'
 import Eye from '../assets/images/eye.svg'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
+// import { increment, decrement, incrementByAmt } from '../reducers/posts/postSlice'
+import { setUserDetails } from '../reducers/user/userSlice'
+// import {save, log_in, increment} from '../actions'
 
 
 function Login() {
@@ -17,19 +20,26 @@ function Login() {
         setPassword(e.target.value)
     }
     let nav = useNavigate()
+    const post = useSelector(state => state.posts.value)
+    const dispatch = useDispatch()
     const login = (e) => {
         e.preventDefault()
+        const userInfo = {
+            email,
+            password
+        }
+        dispatch(setUserDetails(userInfo))
         nav('/dashboard')
     }
-    // const posts = useSelector(state => state.auth)
     return (
         <div className="login_container">
             <div className="login_image_container" style={{ backgroundImage:`url(${AuthImage})` }}>
                     <div className="login_card">
                         <div className="login_logo_div">
-                            {/* <img src={Logo} alt="logo" /> */}
                             <p>ARA</p>
                         </div>
+
+                        {/* <div onClick={() => dispatch(incrementByAmt(5))}>{post}</div> */}
                         <div className="text_form">
                             <div className="welcome_text_div">
                                 <p className="welcome">Welcome</p>

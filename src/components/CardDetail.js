@@ -21,7 +21,7 @@ export default function CardDetail(props) {
             setPost(response.data)
             setLoading(false)
         }) 
-    }, [])
+    }, [id])
   return (
     <div className='card_detail_container'>
       {
