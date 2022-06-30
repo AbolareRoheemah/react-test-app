@@ -1,17 +1,13 @@
 import React from 'react'
 import './styleSheet/App.css';
-// import Navbar from './components/Navbar'
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import { BrowserRouter } from 'react-router-dom'
 import { Routes, Route } from 'react-router';
 import Register from './components/Register';
-// import Login from './components/Login';
-// import Dashboard from './components/Dashboard';
 import CardDetail from './components/CardDetail';
 
 function App() {
-  // const [loggedIn, setLoggedIn] = useState(false)
   return (
     <BrowserRouter>
     <Routes>

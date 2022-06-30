@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styleSheet/Auth.css';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthImage from '../assets/images/new-beta-lady.jpeg'
 import Eye from '../assets/images/eye.svg'
-import {useDispatch, useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 // import { increment, decrement, incrementByAmt } from '../reducers/posts/postSlice'
-import { setUserDetails } from '../reducers/user/userSlice'
 // import {save, log_in, increment} from '../actions'
 
 
 function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
@@ -20,17 +20,19 @@ function Login() {
         setPassword(e.target.value)
     }
     let nav = useNavigate()
-    const post = useSelector(state => state.posts.value)
-    const dispatch = useDispatch()
+    const userDetails = useSelector(state => state.user.user)
+    // const post = useSelector(state => state.posts.value)
     const login = (e) => {
         e.preventDefault()
-        const userInfo = {
-            email,
-            password
+        if (email === userDetails.email && password === userDetails.password) {
+            nav('/dashboard')
+        } else {
+            setTimeout(() => {
+                setError('Invalid details')
+            }, 3000)
         }
-        dispatch(setUserDetails(userInfo))
-        nav('/dashboard')
     }
+    
     return (
         <div className="login_container">
             <div className="login_image_container" style={{ backgroundImage:`url(${AuthImage})` }}>
@@ -42,6 +44,7 @@ function Login() {
                         {/* <div onClick={() => dispatch(incrementByAmt(5))}>{post}</div> */}
                         <div className="text_form">
                             <div className="welcome_text_div">
+                                <p className="welcome">{error}</p>
                                 <p className="welcome">Welcome</p>
                                 <p className="welcome_text">You are about to login to an awesome react app</p>
                             </div>

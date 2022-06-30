@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import '../styleSheet/Navbar.css';
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
-// import {useSelector} from 'react-redux'
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 import cardImage from '../assets/images/firstlady.jpeg'
 
 function Dashboard() {
@@ -15,17 +15,24 @@ function Dashboard() {
     const handleSingleCard = (id) => {
         nav(`/card-details?id=${id}`)
     }
-    // const userDetails = useSelector(state => state.userDetails)
+    const userDetails = useSelector(state => state.user.user)
+    // const post = useSelector(state => state.posts.value)
 
     useEffect( () => {
         setLoading(true)
-        axios.get(baseURL + '/posts')
-        .then(response => {
-            console.log('response', response)
-            const cutPost = response.data.splice(0,6)
-            setPosts(cutPost)
+        console.log(userDetails.email)
+        if (userDetails.email) {
+            axios.get(baseURL + '/posts')
+            .then(response => {
+                console.log('response', response)
+                const cutPost = response.data.splice(0,6)
+                setPosts(cutPost)
+                setLoading(false)
+            }) 
+        } else {
             setLoading(false)
-        }) 
+            nav('/login')
+        }
     }, [])
     return (
         <div>

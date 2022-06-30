@@ -24,16 +24,3 @@ const postSlice = createSlice({
 export const { increment, decrement, incrementByAmt } = postSlice.actions
 
 export default postSlice.reducer
-
-
-// const postReducer = (state = 0, action) => {
-//     switch(action.type) {
-//         case 'INCREMENT':
-//             return state + action.payload
-//         case 'DECREMENT':
-//             return state - 1
-//         default:
-//             return state
-//     }
-// }
-// export default postReducer;
