@@ -44,6 +44,7 @@ a {
     align-items: center;
     padding: 10vh 5vw 5vh;
     flex-flow: wrap;
+    animation: cardHover 2s ease-in infinite;
 }
 
 .cards {
@@ -56,6 +57,9 @@ a {
     /* padding: 2vh 2vw; */
     box-shadow: inset rgb(233, 243, 250);
     margin-bottom: 2vh;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
 }
 
 .cards:nth-child(2), .cards:nth-child(5){
@@ -74,6 +78,10 @@ a {
     height: 30vh;
     min-height: 30vh;
     max-height: 30vh;
+}
+
+.card_body {
+    padding: 0 5%;
 }
 
 .title {
@@ -130,4 +138,22 @@ a {
 
 .post_body {
     font-size: 1.5em;
+}
+
+@keyframes cardHover {
+    0% {
+        transform: translate(0, 0px);
+    }
+    25% {
+        transform: translate(0, 10px);
+    }
+    50% {
+        transform: translate(0, -10px);
+    }
+    75% {
+        transform: translate(0, 10px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
 }

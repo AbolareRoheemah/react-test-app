@@ -21,7 +21,7 @@ function Dashboard() {
     useEffect( () => {
         setLoading(true)
         console.log(userDetails.email)
-        if (userDetails.email) {
+        // if (userDetails.email) {
             axios.get(baseURL + '/posts')
             .then(response => {
                 console.log('response', response)
@@ -29,20 +29,14 @@ function Dashboard() {
                 setPosts(cutPost)
                 setLoading(false)
             }) 
-        } else {
-            setLoading(false)
-            nav('/login')
-        }
+        // } else {
+        //     setLoading(false)
+        //     nav('/login')
+        // }
     }, [])
     return (
         <div>
             <Navbar />
-            <div className="logo-div">
-            <div className="login_logo_div">
-                {/* <img src={Logo} alt="logo" /> */}
-                <p>ARA</p>
-            </div>
-            </div>
             {
             loading ? <p className='login_amt'>Loading...</p>: 
             <div className="cards_div">

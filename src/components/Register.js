@@ -15,11 +15,13 @@ function Register() {
     const [confirm_password, setConfirmPassword] = useState('')
     const [email, setEmail] = useState('')
     const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()
     let nav = useNavigate()
 
     const handleRegister = (e) => {
         e.preventDefault()
+        setLoading(true)
         const userInfo = {
             name,
             password,
@@ -28,8 +30,11 @@ function Register() {
         }
         if (password.trim() === confirm_password.trim()) {
             dispatch(setUserDetails(userInfo))
+            console.log('i dispatched')
             nav('/login')
+            setLoading(false)
         } else {
+            setLoading(false)
             setTimeout(() => {
                 setError('pls enter the correct password')
             }, 3000)
@@ -45,7 +50,7 @@ function Register() {
                         </div>
                         <div className="text_form">
                             <div className="welcome_text_div">
-                                <p className="welcome">{error}</p>
+                                <p className="error_msg">{error}</p>
                                 <p className="welcome">Welcome</p>
                                 <p className="welcome_text">Register to view an awesome app, I'm sure you don't wanna miss out</p>
                             </div>
@@ -74,8 +79,13 @@ function Register() {
                                 </div>
                                 <p className="terms">By signing up you agree to our <span className="terms_link">Terms &nbsp; Privacy Policy</span></p>
                                 <div className="btn_div">
-                                    <button className="btn">
-                                        <Link to="/login">Register Account</Link>
+                                    <button className="btn" type='submit'>
+                                        {loading ? 
+                                        <div>
+                                            <p className='spinner'></p>
+                                        </div>
+                                        : 
+                                        <p>Register Account</p>}
                                     </button>
                                 </div>
                                 <p className="question_text">Already have an account? <Link to="/login" className="forgot_password">Sign In</Link></p>

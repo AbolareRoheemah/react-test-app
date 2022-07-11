@@ -12,6 +12,7 @@ function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
@@ -24,9 +25,11 @@ function Login() {
     // const post = useSelector(state => state.posts.value)
     const login = (e) => {
         e.preventDefault()
+        setLoading(true)
         if (email === userDetails.email && password === userDetails.password) {
             nav('/dashboard')
         } else {
+            setLoading(false)
             setTimeout(() => {
                 setError('Invalid details')
             }, 3000)
@@ -44,7 +47,7 @@ function Login() {
                         {/* <div onClick={() => dispatch(incrementByAmt(5))}>{post}</div> */}
                         <div className="text_form">
                             <div className="welcome_text_div">
-                                <p className="welcome">{error}</p>
+                                <p className="error_msg">{error}</p>
                                 <p className="welcome">Welcome</p>
                                 <p className="welcome_text">You are about to login to an awesome react app</p>
                             </div>
@@ -61,7 +64,12 @@ function Login() {
                                 <p className="forgot_password">Forgot Password?</p>
                                 <div className="btn_div">
                                     <button className="btn" type='submit'>
-                                        Sign In
+                                        {loading ? 
+                                        <div>
+                                            <p className='spinner'></p>
+                                        </div>
+                                        : 
+                                        <p>Sign In</p>}
                                     </button>
                                 </div>
                                 <p className="question_text">Don't have an account <Link to="/register" className="forgot_password">Create New Account</Link></p>
