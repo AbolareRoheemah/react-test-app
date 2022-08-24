@@ -1,5 +1,5 @@
 .nav_container {
-    /* width: 100vw; */
+    width: 100vw;
     max-width: 90vw;
     background-color: #fff;
     display: flex;
@@ -9,12 +9,14 @@
     padding: 0 5vw;
     overflow: hidden;
     height: 9vh;
+    position: fixed;
+    z-index: 100;
 }
 
 .nav_logo_div {
     width: 60px;
     height: 60px;
-    background-color: rgb(233, 243, 250);
+    background-color: rgb(212, 214, 216);
     /* height: 120px; */
     border-radius: 50%;
     display: flex;
@@ -33,7 +35,8 @@ a {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    width: 10vw;
+    min-width: 10vw;
+    width: auto;
     cursor: pointer;
 }
 
@@ -44,7 +47,7 @@ a {
     align-items: center;
     padding: 10vh 5vw 5vh;
     flex-flow: wrap;
-    animation: cardHover 2s ease-in infinite;
+    background-color: #676d78;
 }
 
 .cards {
@@ -60,6 +63,13 @@ a {
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    /* animation: cardHover 2s ease-in infinite; */
+    transition: 0.8s;
+}
+
+.cards:hover {
+    flex-grow: 0.3;
+    margin: 0 0.5vw;
 }
 
 .cards:nth-child(2), .cards:nth-child(5){
@@ -112,7 +122,6 @@ a {
 }
 
 .card_detail_container {
-    padding: 10vh 10vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -120,12 +129,20 @@ a {
 }
 
 .image_div {
+    padding: 10vh 10vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: slide-in-from-top 0.7s backwards ease-in-out;
+    /* background-image: url('../assets//images//discover.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat; */
 }
 
 .details_body {
+    padding: 10vh 10vw;
     margin-top: 7vh;
     padding: 0 10vw;
     text-align: center;
@@ -138,6 +155,70 @@ a {
 
 .post_body {
     font-size: 1.5em;
+    color: #fff;
+}
+.post_link {
+    text-decoration: underline;
+}
+.cloud1 {
+}
+.cloud2 {
+    position: absolute;
+    left: 46%;
+    top: 12vh;
+}
+.cloud_container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout-ctn {
+    width: 15vw;
+    min-width: 8vw;
+    max-width: 15vw;
+    height: 10vh;
+    background-color: #fff;
+    position: fixed;
+    top: 9vh;
+    right: 5vw;
+    border-radius: 3%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.logout-text {
+    padding: 3.5vh 2vw;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.logout-text:hover {
+    background-color: rgb(166, 163, 163, 0.2);
+}
+
+.jumbotron-ctn {
+    background-image: url('../assets/images/codefun.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: (50%, 40%);
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    animation: slide-in-from-top 0.7s backwards ease-in-out;
+}
+
+.jumbotron-text {
+    font-size: 4em;
+    font-family: sans-serif;
 }
 
 @keyframes cardHover {
@@ -152,6 +233,24 @@ a {
     }
     75% {
         transform: translate(0, 10px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slide-in-from-top {
+    0% {
+        transform: translate(0, -10vh);
+    }
+    25% {
+        transform: translate(0, 5vh);
+    }
+    50% {
+        transform: translate(0, -2vh);
+    }
+    75% {
+        transform: translate(0, 1vh);
     }
     100% {
         transform: translate(0, 0);

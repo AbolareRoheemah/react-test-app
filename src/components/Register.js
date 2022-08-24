@@ -18,6 +18,7 @@ function Register() {
     const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()
     let nav = useNavigate()
+    const userDetails = useSelector(state => state.user.user)
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -29,10 +30,19 @@ function Register() {
             email
         }
         if (password.trim() === confirm_password.trim()) {
-            dispatch(setUserDetails(userInfo))
-            console.log('i dispatched')
-            nav('/login')
-            setLoading(false)
+            if (userDetails.email === userInfo.email) {
+                setLoading(false)
+                setTimeout(() => {
+                    setError('A user with email of ' + userInfo.email + ' already exists')
+                }, 3000)
+                setError('')
+            } else {
+                dispatch(setUserDetails(userInfo))
+                setTimeout(() => {
+                    nav('/login')
+                    setLoading(false)
+                })
+            }
         } else {
             setLoading(false)
             setTimeout(() => {
@@ -50,7 +60,7 @@ function Register() {
                         </div>
                         <div className="text_form">
                             <div className="welcome_text_div">
-                                <p className="error_msg">{error}</p>
+                                {/* <p className="error_msg">{error}</p> */}
                                 <p className="welcome">Welcome</p>
                                 <p className="welcome_text">Register to view an awesome app, I'm sure you don't wanna miss out</p>
                             </div>
@@ -77,7 +87,9 @@ function Register() {
                                     <input type="confirmpassword" className="register_input_box" value={confirm_password} onChange={(e) => { setConfirmPassword(e.target.value)}} required />
                                     <img src={Eye} alt="show password" className="register_toggle_password"/>
                                 </div>
+                                <p className="error_msg">{error}</p>
                                 <p className="terms">By signing up you agree to our <span className="terms_link">Terms &nbsp; Privacy Policy</span></p>
+                                
                                 <div className="btn_div">
                                     <button className="btn" type='submit'>
                                         {loading ? 

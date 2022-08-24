@@ -26,6 +26,7 @@ function Login() {
     const login = (e) => {
         e.preventDefault()
         setLoading(true)
+        console.log('see', email === userDetails.email && password === userDetails.password)
         if (email === userDetails.email && password === userDetails.password) {
             nav('/dashboard')
         } else {

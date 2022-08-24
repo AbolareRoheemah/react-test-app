@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../styleSheet/Auth.css';
 import axios from 'axios'
-import cardImage from '../assets/images/eclady.jpeg'
+import cardImage from '../assets/images/discover.jpg'
 import { Link } from 'react-router-dom';
 
 export default function CardDetail(props) {
@@ -33,7 +33,7 @@ export default function CardDetail(props) {
                 <div className="details_body">
                     <p className="detail_title">{post.title}</p>
                     <p className="post_body">{post.body}</p>
-                    <Link to="/dashboard"><p className="post_body">Go Back</p></Link>
+                    <Link to="/dashboard"><p className="post_body post_link">Go Back</p></Link>
                 </div>
               </div>
       }

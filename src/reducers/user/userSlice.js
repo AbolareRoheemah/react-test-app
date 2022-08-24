@@ -10,9 +10,11 @@ const userSlice = createSlice({
     reducers: {
         setUserDetails: (state, action) => {
             state.user = action.payload
+            // window.localStorage.setItem('userInfo', action.payload)
         },
-        clearUserDetails: (state) => {
-            state.user = {}
+        clearUserDetails: (state, action) => {
+            state.user = action.payload
+            // window.localStorage.setItem('userInfo', '')
         }
     }
 })

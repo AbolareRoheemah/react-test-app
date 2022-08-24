@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styleSheet/Navbar.css';
 import Avatar from '../assets/images/user-pic.png';
 import Dropdown from '../assets/images/nav-dropdown.svg';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearUserDetails } from '../reducers/user/userSlice'
 
 export default function Navbar() {
     const nav = useNavigate()
-    const id = 123
+    // const id = 123
+    const [showDropdown, setShowDropdown] = useState(false)
     const userName = useSelector(state => state.user.user)
+    const dispatch = useDispatch()
 
     const handleLogOut = () => {
-        nav(`/login?${id}`)
+        console.log('called1')
+        console.log('called')
+        nav('/login')
+        dispatch(clearUserDetails({}))
     }
 
     return (
@@ -26,11 +32,17 @@ export default function Navbar() {
             <div className="main_nav">
                 <p className="page_name">{}</p>
                 <div className="user_info_div">
-                    <div className="user_info_div">
+                    <div className="user_info_div" onClick={() => {setShowDropdown(!showDropdown)}}>
                         <p className="name">{userName.name}</p>
                         <img src={Avatar} alt="user_pic" className='avatar-pic' />
-                        <img src={Dropdown} alt="dropdown" onClick={handleLogOut} />
+                        <img src={Dropdown} alt="dropdown" />
                     </div>
+                    {
+                        showDropdown &&
+                        <div className="logout-ctn">
+                            <p className="logout-text" onClick={handleLogOut}>Logout</p>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
