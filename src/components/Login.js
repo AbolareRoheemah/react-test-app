@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import '../styleSheet/Auth.css';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthImage from '../assets/images/new-beta-lady.jpeg'
@@ -13,12 +13,21 @@ function Login() {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const logpassref = useRef(null)
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
     }
     const handlePassChange = (e) => {
         setPassword(e.target.value)
+    }
+
+    const handleShowPass = () => {
+        if (logpassref.current.type === 'password') {
+            logpassref.current.type = 'text'
+        } else {
+            logpassref.current.type = 'password'
+        }
     }
     let nav = useNavigate()
     const userDetails = useSelector(state => state.user.user)
@@ -59,10 +68,10 @@ function Login() {
                                 </div>
                                 <div className="input_field">
                                     <label htmlFor="password" className="input_label">Password</label>
-                                    <input type="password" className="input_box" value={password} onChange={handlePassChange} required />
-                                    <img src={Eye} alt="show password" className="toggle_password"/>
+                                    <input type="password" ref={logpassref} className="input_box" value={password} onChange={handlePassChange} required />
+                                    <img src={Eye} alt="show password" className="toggle_password" onClick={handleShowPass}/>
                                 </div>
-                                <p className="forgot_password">Forgot Password?</p>
+                                {/* <p className="forgot_password"></p> */}
                                 <div className="btn_div">
                                     <button className="btn" type='submit'>
                                         {loading ? 
@@ -73,7 +82,7 @@ function Login() {
                                         <p>Sign In</p>}
                                     </button>
                                 </div>
-                                <p className="question_text">Don't have an account <Link to="/register" className="forgot_password">Create New Account</Link></p>
+                                <p className="question_text">Don't have an account? <Link to="/register" className="forgot_password">Create One</Link></p>
                             </form>
                         </div>
                     </div>

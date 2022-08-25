@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import '../styleSheet/Auth.css';
 import { Link } from 'react-router-dom';
 import AuthImage from '../assets/images/new-beta-lady.jpeg'
@@ -19,6 +19,24 @@ function Register() {
     const dispatch = useDispatch()
     let nav = useNavigate()
     const userDetails = useSelector(state => state.user.user)
+    const passref = useRef(null)
+    const confirmpassref = useRef(null)
+
+    const handleShowPassword = (e) => {
+        if (e.target.className.includes('eye1')) {
+            if (passref.current.type === 'password') {
+                passref.current.type = 'text'
+            } else {
+                passref.current.type = 'password'
+            }
+        } else {
+            if (confirmpassref.current.type === 'password') {
+                confirmpassref.current.type = 'text'
+            } else {
+                confirmpassref.current.type = 'password'
+            }
+        }
+    }
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -79,13 +97,13 @@ function Register() {
                                 </div>
                                 <div className="input_field">
                                     <label htmlFor="password" className="register_input_label">Password</label>
-                                    <input type="password" className="register_input_box" value={password} onChange={(e) => { setPassword(e.target.value)}} required />
-                                    <img src={Eye} alt="show password" className="register_toggle_password"/>
+                                    <input type="password" ref={passref} className="register_input_box" value={password} onChange={(e) => { setPassword(e.target.value)}} required />
+                                    <img src={Eye} alt="show password" className="register_toggle_password eye1" onClick={handleShowPassword}/>
                                 </div>
                                 <div className="input_field">
                                     <label htmlFor="confirmpassword" className="register_input_label">Confirm Password</label>
-                                    <input type="confirmpassword" className="register_input_box" value={confirm_password} onChange={(e) => { setConfirmPassword(e.target.value)}} required />
-                                    <img src={Eye} alt="show password" className="register_toggle_password"/>
+                                    <input type="password" ref={confirmpassref} className="register_input_box" value={confirm_password} onChange={(e) => { setConfirmPassword(e.target.value)}} required />
+                                    <img src={Eye} alt="show password" className="register_toggle_password" onClick={handleShowPassword}/>
                                 </div>
                                 <p className="error_msg">{error}</p>
                                 <p className="terms">By signing up you agree to our <span className="terms_link">Terms &nbsp; Privacy Policy</span></p>
